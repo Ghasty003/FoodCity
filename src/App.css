@@ -3,3 +3,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.upload {
+    position: absolute;
+    top: 120px;
+    right: 350px;
+    animation: upload 2s;
+}
+
+@keyframes upload {
+    from {
+        transform: translateY(-100px);
+    }
+}
