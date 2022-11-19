@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-primary p-3 pt-0;
+}
+
+.heroBg {
+    background-image: url("../src/assets/heroBg.png");
+    @apply bg-cover bg-no-repeat bg-center;
+}
+
 .upload {
     position: absolute;
     top: 120px;

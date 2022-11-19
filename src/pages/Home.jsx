@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
+import ProductHeader from '../components/ProductHeader';
+import { SideBarContextProvider } from '../context/SideBarContext';
 
 function Home() {
     return (
         <div>
-            <Link to="/login">Homepage</Link>
+            <SideBarContextProvider>
+                <NavBar />
+            </SideBarContextProvider>
+            <Header />
+            <ProductHeader />
         </div>
     );
 }
