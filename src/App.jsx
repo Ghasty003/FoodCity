@@ -11,8 +11,8 @@ function App() {
     <div className='bg-primary min-h-[100vh] font-DM'>
       <Routes>
         <Route path='/'>
-          <Route index element={<Home />} />
-          <Route path='login' element={<Login />} />
+          <Route index element={<Login />} />
+          {/* <Route path='login' element={<Login />} /> */}
           <Route path='register' element={<Register />} />
         </Route>
       </Routes>
