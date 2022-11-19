@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import bike from "../assets/delivery.png";
 import ice1 from "../assets/i1.png";
 import ice2 from "../assets/f1.png";
 import ice3 from "../assets/fi1.png";
 import ice4 from "../assets/food3.png";
+import AuthContext from "../context/AuthContext";
 
 
 const Div = ({ headingText, price, paragText, img }) => {

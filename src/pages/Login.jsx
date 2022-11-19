@@ -1,12 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import AuthContext from '../context/AuthContext';
 
 function Login() {
+
+    const {currentUser} = useContext(AuthContext);
+
+    
 
     const [seePass, setSeePass] = useState(false);
     const [err, setErr] = useState(false);

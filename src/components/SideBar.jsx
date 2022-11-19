@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import { BsArrowLeft } from "react-icons/bs";
 import { FcClearFilters } from "react-icons/fc";
 import CartEmpty from './CartEmpty';
@@ -38,7 +38,7 @@ function SideBar() {
             <div className='flex justify-around mt-6 items-center font-bold text-xl cursor-pointer'>
                 <BsArrowLeft onClick={hideSideBar} className='inline-block' />
                 <p>Cart</p>
-                <p onClick={clearCart} className='bg-gray-100 shadow-xl text-center font-light rounded-xl p-2 active:shadow-md duration-500 active:scale-50'>
+                <p onClick={clearCart} className='bg-gray-100 select-none shadow-xl text-center font-light rounded-xl p-2 active:shadow-md duration-500 active:scale-50'>
                     Clear <FcClearFilters className='inline-block' />
                 </p>
             </div>
