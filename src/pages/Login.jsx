@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 
@@ -67,6 +67,8 @@ function Login() {
         })
     }, []);
 
+    const navigate = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -74,7 +76,7 @@ function Login() {
 
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
-            console.log(res.user);
+            navigate("/");
         } catch(e) {
             setErr(true);
         }
