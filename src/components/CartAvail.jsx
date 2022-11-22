@@ -57,7 +57,7 @@ const CartAvail = () => {
 
                 <div>
                     <Link to="/checkout">
-                    <p className='capitalize w-[90%] mx-4 bg-orange-500 p-2 rounded-3xl text-white text-center my-2'>login to checkout</p>
+                    <p className='capitalize w-[90%] mx-4 bg-orange-500 p-2 rounded-3xl text-white text-center my-2'>Continue to checkout</p>
                     </Link>
                 </div>
             </div>
