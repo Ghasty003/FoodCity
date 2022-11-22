@@ -7,7 +7,7 @@ import Add from "../assets/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth, db, storage } from '../../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 function Register() {
 
@@ -144,7 +144,10 @@ function Register() {
                         password,
                         email,
                         uid: res.user.uid
-                    })
+                    });
+
+                    await setDoc(doc(db, "usersCart", res.user.uid), {});
+
                     navigate("/");
                 })
              }

@@ -1,4 +1,5 @@
 import { useContext, useReducer } from "react";
+import { Link } from "react-router-dom";
 import HeaderCartContext from "../context/HeaderCartContext";
 
 
@@ -55,7 +56,9 @@ const CartAvail = () => {
                 </div>
 
                 <div>
+                    <Link to="/checkout">
                     <p className='capitalize w-[90%] mx-4 bg-orange-500 p-2 rounded-3xl text-white text-center my-2'>login to checkout</p>
+                    </Link>
                 </div>
             </div>
         </>

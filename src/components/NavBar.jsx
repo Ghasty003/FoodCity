@@ -1,20 +1,19 @@
 import React, { useContext, useState } from 'react';
 import logo from "../assets/food-logo.png";
-import avatar from "../assets/avatar-food.png";
 import { BsCartPlusFill } from "react-icons/bs";
+import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import SideBar from './SideBar';
 import HeaderCartContext from '../context/HeaderCartContext';
 import SideBarContext from '../context/SideBarContext';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import AuthContext from '../context/AuthContext';
+
 
 function NavBar() {
 
     const { items } = useContext(HeaderCartContext);
-    const { showSideBarfn } = useContext(SideBarContext);
-    const {currentUser} = useContext(AuthContext);
+    const { showSideBarfn, showMenuBar } = useContext(SideBarContext);
 
     const [list, _setList] = useState([
         { item: "Home", id: 0},
@@ -32,7 +31,7 @@ function NavBar() {
 
 
     return (
-        <div className='sticky bg-primary top-0 z-10 pb-4'>
+        <div className='sticky bg-primary top-0 z-10 pb-2'>
             <nav className='flex justify-around items-center py-4'>
                 <a href='#' className='flex items-center gap-2'>
                     <img className='w-10 rounded-full ' src={logo} alt="logo" />
@@ -58,19 +57,14 @@ function NavBar() {
                     
                     </div>
 
-                    <p onClick={handleLogout} className='bg-orange-400 m-4 p-2 rounded-xl text-textColor cursor-pointer shadow-xl duration-500 active:scale-50 select-none'>
-                        Logout
+                    <p className='m-4 p-2 rounded-xl text-2xl text-textColor cursor-pointer'>
+                        <HiOutlineBars3BottomRight onClick={showMenuBar} />
                     </p>
                 </div>
 
                 <SideBar />
 
             </nav>
-
-            <div className='flex justify-center pt-1 pl-16 md:pl-28 flex-col'>
-                <img className='w-14 h-14 rounded-full object-cover' src={currentUser.photoURL} alt="avatar" />
-                <p>Welcome back, <span className='text-orange-400'>{currentUser.displayName}</span>.</p>
-            </div>
         </div>
     );
 }

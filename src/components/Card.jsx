@@ -1,13 +1,31 @@
+import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { BsCartPlusFill } from "react-icons/bs";
+import { db } from "../../firebase";
 import HeaderCartContext from "../context/HeaderCartContext";
+import AuthContext from "../context/AuthContext";
+import CheckoutContext from "../context/CheckoutContext";
 
 const Card = ({id, price, title, description, img}) => {
 
-    const {addToCart} = useContext(HeaderCartContext);
+    const {currentUser} = useContext(AuthContext)
 
-    const handleClick = () => {
+    const {addToCart} = useContext(HeaderCartContext);
+    const {addToCheckout} = useContext(CheckoutContext);
+
+    const handleClick = async () => {
         addToCart(title, price, img, id, description);
+
+        // Add items to database cart
+        await updateDoc(doc(db, "usersCart", currentUser.uid), {
+            carts: arrayUnion({
+                id,
+                price,
+                img,
+                title,
+                description
+            })
+        });
     }
 
     return (
