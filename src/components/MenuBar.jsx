@@ -4,15 +4,9 @@ import SideBarContext from '../context/SideBarContext';
 import {  FaTimes } from "react-icons/fa";
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 function MenuBar() {
-
-    const [lists, _setLists] = useState([
-        {item: "Checkout", id: 0},
-        {item: "Change Password", id: 1},
-        {item: "Change Email", id: 2},
-        {item: "Update Picture", id: 3},
-    ])
 
     const {currentUser} = useContext(AuthContext);
     const {menubar} = useContext(SideBarContext);
@@ -34,6 +28,8 @@ function MenuBar() {
         }
     }
 
+    const navigate = useNavigate();
+
 
     return (
         <div ref={menubar} className='bg-orange-200 -translate-x-full h-full md:w-[375px] top-0 w-full fixed left-0 z-20 drop-shadow-md'>
@@ -45,11 +41,10 @@ function MenuBar() {
             <FaTimes onClick={hideMenuBar} className='text-2xl cursor-pointer absolute right-4 top-7' />
 
             <ul className='relative top-[200px] left-8'>
-                {
-                    lists.map(({item, id}) => (
-                        <li key={id} className="select-none m-6 text-textColor" >{ item }</li>
-                    ))
-                }
+                <li onClick={() => navigate("/checkout")} className="select-none m-6 text-textColor" >Checkout</li>
+                <li className="select-none m-6 text-textColor" >Change Password</li>
+                <li className="select-none m-6 text-textColor" >Change Email</li>
+                <li className="select-none m-6 text-textColor" >Update Picture</li>
             </ul>
 
             <p onClick={() => signOut(auth)} className='m-4 p-2 rounded-xl absolute bottom-0 duration-300 active:scale-50 select-none
