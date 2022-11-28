@@ -1,31 +1,44 @@
 import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { BsCartPlusFill } from "react-icons/bs";
-import { db } from "../../firebase";
+import { db, storage } from "../../firebase";
 import HeaderCartContext from "../context/HeaderCartContext";
 import AuthContext from "../context/AuthContext";
-import CheckoutContext from "../context/CheckoutContext";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Card = ({id, price, title, description, img}) => {
 
     const {currentUser} = useContext(AuthContext)
 
     const {addToCart} = useContext(HeaderCartContext);
-    const {addToCheckout} = useContext(CheckoutContext);
 
     const handleClick = async () => {
         addToCart(title, price, img, id, description);
 
         // Add items to database cart
+       const storageRef = ref(storage, title);
+       const uploadTask = uploadBytesResumable(storageRef, img);
+
+       uploadTask.on("state_changed",
+       () => {
+
+       },
+       (err) => {
+        console.log(err)
+       },
+       async () => {
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
         await updateDoc(doc(db, "usersCart", currentUser.uid), {
             carts: arrayUnion({
                 id,
                 price,
-                img,
+                img: downloadURL,
                 title,
                 description
             })
         });
+       }
+       )
     }
 
     return (

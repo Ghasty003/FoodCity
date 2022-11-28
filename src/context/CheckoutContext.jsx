@@ -1,4 +1,4 @@
-import { doc, onSnapshot } from "firebase/firestore";
+import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../../firebase";
 import AuthContext from "./AuthContext";
@@ -13,20 +13,24 @@ export const CheckoutContextProvider = ({children}) => {
 
     useEffect(() => {
 
-        // const unsub = onSnapshot(doc(db, "usersCart", currentUser.uid), (res) => {
-        //     setCarts([...res.data().carts])
-        // });
+        const getCarts = () => {
+            const unsub = onSnapshot(doc(db, "usersCart", currentUser.uid), (snapshot) => {
+                setCarts([snapshot.data().carts])
+            });
+        
+            return () => {
+                unsub();
+            } 
+        }
 
-        // return () => {
-        //     unsub();
-        // }
+        currentUser.uid && getCarts();
 
-    }, []);
+    }, [currentUser?.uid]);
 
-    // console.log(carts)
+    console.log(carts[0])
 
     return (
-        <CheckoutContext.Provider value={{carts}}>
+        <CheckoutContext.Provider value={{ carts }}>
             {children}
         </CheckoutContext.Provider>
     )

@@ -10,14 +10,12 @@ import { SideBarContextProvider } from '../context/SideBarContext';
 function Home() {
     return (
         <div>
-            <CheckoutContextProvider>
-                <SideBarContextProvider>
-                    <NavBar />
-                    <MenuBar />
-                    <Header />
-                    <ProductHeader />
-                </SideBarContextProvider>
-            </CheckoutContextProvider>
+            <SideBarContextProvider>
+                <NavBar />
+                <MenuBar />
+                <Header />
+                <ProductHeader />
+            </SideBarContextProvider>
         </div>
     );
 }
