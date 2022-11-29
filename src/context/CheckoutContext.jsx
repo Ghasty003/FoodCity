@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../../firebase";
 import AuthContext from "./AuthContext";
@@ -27,7 +27,9 @@ export const CheckoutContextProvider = ({children}) => {
 
     }, [currentUser?.uid]);
 
-    console.log(carts[0])
+//    carts[0]?.forEach(ele => {
+//     console.log(ele.img)
+//    })
 
     return (
         <CheckoutContext.Provider value={{ carts }}>

@@ -7,7 +7,7 @@ function Checkout() {
 
     return (
         <div>
-            {
+            {/* {
                 carts[0]?.map(({price, img, id, title}) => (
                     <div key={id}>
                         <img src={img} alt="image" />
@@ -15,7 +15,7 @@ function Checkout() {
                         <p>{ title }</p>
                     </div>
                 ))
-            }
+            } */}
         </div>
     );
 }
