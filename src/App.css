@@ -15,9 +15,9 @@ body {
 
 .upload {
     position: absolute;
-    top: 120px;
-    right: 350px;
-    animation: upload 2s;
+    top: 10px;
+    right: calc(50% - 120px);
+    animation: upload 1s;
 }
 
 @keyframes upload {
