@@ -32,11 +32,11 @@ const Login: React.FC = () => {
             <p>Enter your details to sign in</p>
             <form className='w-full mt-4' onSubmit={handleLogin}>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md my-4'>
-                    <input className='w-[90%] outline-none p-2' type="text" />
+                    <input placeholder="Email" className='w-[90%] outline-none p-2' type="text" />
                     <AiOutlineMail />
                 </div>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md'>
-                    <input type="password" className='w-[90%] outline-none p-2' ref={passwordInput} />
+                    <input placeholder="Password" type="password" className='w-[90%] outline-none p-2' ref={passwordInput} />
                     { seePass ? <FiEyeOff className='cursor-pointer' onClick={hidePassword} />
                         : <IoEyeOutline className='cursor-pointer' onClick={seePassword} />
                     }
