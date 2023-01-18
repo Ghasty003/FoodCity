@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 
-router.post("/", signupUser);
+router.post("/signup", signupUser);
 
 
 export default router;
