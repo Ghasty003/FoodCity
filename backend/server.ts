@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routers/userRoutes";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ class Server {
 
     public useMiddleWares():void {
         this.app.use(express.json({limit: "50mb"}));
+        this.app.use(cors());
         this.initializeRoutes();
     }
 
