@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routers/userRoutes";
+import dotevn from "dotenv";
 
+dotevn.config();
 
 class Server {
     private app: express.Application;
