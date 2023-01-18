@@ -1,5 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
+import userRoute from "./routers/userRoutes";
+
 
 class Server {
     private app: express.Application;
@@ -16,6 +18,11 @@ class Server {
 
     public useMiddleWares():void {
         this.app.use(express.json({limit: "50mb"}));
+        this.initializeRoutes();
+    }
+
+    public initializeRoutes() {
+        this.app.use("/api/users", userRoute);
     }
 
     public async connectToDB():Promise<void> {
