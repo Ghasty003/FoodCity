@@ -28,8 +28,14 @@ class UserSchema {
 
             const user = this.findOne({ email });
 
-            if (user) {
-                throw new Error ("email already in use.")
+            if (!user) {
+                throw new Error ("Invalid email address.")
+            }
+
+            const matchPassword = await this.findOne({ email, password });
+
+            if (!matchPassword) {
+                throw new Error("Invalid password");
             }
 
             return user;
