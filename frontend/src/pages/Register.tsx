@@ -28,7 +28,7 @@ const Register: React.FC = () => {
     return (
         <div className='flex justify-center items-center py-16'>
            <div className='bg-white w-[400px] h-[450px] shadow-2xl flex flex-col items-center rounded-2xl p-5'>
-            <h2 className='text-2xl font-bold'>Welcom to FoodCity</h2>
+            <h2 className='text-2xl font-bold'>Welcome to FoodCity</h2>
             <p>Register your account</p>
             <form className='w-full mt-4' onSubmit={handleLogin}>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md my-4'>
