@@ -4,6 +4,7 @@ class UserSchema {
 
     public constructor() {
         this.login();
+        this.signUp();
     }
 
     public userSchema() {
@@ -30,6 +31,23 @@ class UserSchema {
             if (user) {
                 throw new Error ("email already in use.")
             }
+
+            return user;
+        }
+    }
+
+    public signUp() {
+        this.userSchema().statics.signup = async function (email: string, password: string) {
+            if (!email || !password) {
+                throw new Error("All fields are required.");
+            }
+
+            const exists = await this.findOne({ email });
+            if (exists) {
+                throw new Error("email already in use.")
+            }
+
+            const user = this.create({ email, password });
 
             return user;
         }
