@@ -21,6 +21,10 @@ userSchema.statics.signup = async function (email, password) {
     throw new Error("email already in use.");
   }
 
+  if (password.length < 6) {
+    throw new Error("Password is too weak");
+  }
+
   const user = await this.create({ email, password });
 
   return user;
