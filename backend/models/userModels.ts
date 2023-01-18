@@ -2,6 +2,10 @@ import mongoose, { Schema } from "mongoose";
 
 class UserSchema {
 
+    public constructor() {
+        this.login();
+    }
+
     public userSchema() {
         return new Schema({
             email: {
@@ -13,6 +17,22 @@ class UserSchema {
                 required: true
             }
         })
+    }
+
+    public login() {
+        this.userSchema().statics.login = async function (email: string, password: string) {
+            if (!email || !password) {
+                throw new Error("All fields are required.");
+            }
+
+            const user = this.findOne({ email });
+
+            if (user) {
+                throw new Error ("email already in use.")
+            }
+
+            return user;
+        }
     }
 }
 
