@@ -3,7 +3,7 @@ import { signupUser } from "../controllers/userController";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.post("/login", (req, res) => {
     res.json("Get request");
 });
 
