@@ -63,7 +63,7 @@ class UserSchema {
                 throw new Error("email already in use.")
             }
 
-            const user: unknown = this.create({ email, password });
+            const user = await this.create({ email, password });
 
             return user;
         })
