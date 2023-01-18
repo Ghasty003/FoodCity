@@ -15,6 +15,10 @@ class Server {
         this.port = process.env.PORT;
     }
 
+    public test() {
+        this.app.get("/test", (req, res) => res.status(200).json("Hello world"));
+    }
+
     private listen(): void {
         this.app.listen(this.port, () => {
             console.log("connected to db & server started on port", this.port);
@@ -43,5 +47,6 @@ class Server {
 
 const server = new Server();
 
+server.test();
 server.useMiddleWares();
 server.connectToDB();
