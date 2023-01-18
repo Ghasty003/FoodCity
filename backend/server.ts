@@ -1,17 +1,21 @@
-import express, { Express } from "express";
+import express from "express";
 import mongoose from "mongoose";
 
 class Server {
-    public app: express.Application;
+    private app: express.Application;
 
     constructor() {
         this.app = express();
     }
 
-    public listen(): void {
+    private listen(): void {
         this.app.listen(4000, () => {
             console.log("connected to db & server started on port 4000");
         })
+    }
+
+    public useMiddleWares():void {
+        this.app.use(express.json({limit: "50mb"}));
     }
 
     public async connectToDB():Promise<void> {
@@ -26,4 +30,5 @@ class Server {
 
 const server = new Server();
 
+server.useMiddleWares();
 server.connectToDB();
