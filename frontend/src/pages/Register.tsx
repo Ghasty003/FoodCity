@@ -41,18 +41,16 @@ const Register: React.FC = () => {
                         : <IoEyeOutline className='cursor-pointer' onClick={seePassword} />
                     }
                 </div>
-                <div className='text-end pr-6 pt-3'>
-                    <Link to="" className='text-sm text-orange-400 text-end'>Forgot password?</Link>
-                </div>
+
                 {
                     err && <p className='text-center mt-2 text-red-600'>Something went wrong, try again.</p>
                 }
                 <div className='flex justify-center items-center my-6'>
-                    <button className='bg-orange-400 text-white w-[200px] p-2 rounded-xl text-center'>Sign In</button>
+                    <button className='bg-orange-400 text-white w-[200px] p-2 rounded-xl text-center'>Register</button>
                 </div>
 
                 <div className='text-center text-sm'>
-                    <p>Don't have an account? <Link to="/register" className='text-orange-400'>Register</Link></p>
+                    <p>Already have an account? <Link to="/login" className='text-orange-400'>Login</Link></p>
                 </div>
             </form>
            </div>
