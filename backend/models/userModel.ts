@@ -1,4 +1,15 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Model, Schema } from "mongoose";
+
+
+interface User {
+    email: string;
+    password: string;
+}
+
+interface UserModel extends Model<User> {
+    signup(email: string, password: string): unknown;
+    login(email: string, password: string): unknown;
+}
 
 class UserSchema {
 
@@ -8,7 +19,7 @@ class UserSchema {
     }
 
     public userSchema() {
-        return new Schema({
+        return new Schema<User, UserModel>({
             email: {
                 type: String,
                 required: true
@@ -43,7 +54,7 @@ class UserSchema {
     }
 
     public signUp() {
-        this.userSchema().statics.signup = async function (email: string, password: string) {
+        this.userSchema().static("signup", async function signup (email: string, password: string) {
             if (!email || !password) {
                 throw new Error("All fields are required.");
             }
@@ -53,13 +64,13 @@ class UserSchema {
                 throw new Error("email already in use.")
             }
 
-            const user = this.create({ email, password });
+            const user: unknown = this.create({ email, password });
 
             return user;
-        }
+        })
     }
 }
 
 const userSchema = new UserSchema();
 
-export default mongoose.model("users", userSchema.userSchema());
+export default mongoose.model<User, UserModel>("users", userSchema.userSchema());
