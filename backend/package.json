@@ -2,7 +2,7 @@
   "name": "backend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc && vite build",
     "preview": "vite preview",
