@@ -23,6 +23,29 @@ const Register: React.FC = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const event = (e.target) as HTMLFormElement;
+
+        const email: string = (event[0] as HTMLInputElement).value;
+        const password: string = (event[1] as HTMLInputElement).value;
+
+        const response = await fetch("http://localhost:4000/api/users/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email, password})
+        });
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            console.log(json.error);
+        }
+
+        if (response.ok) {
+            console.log(json)
+        }
     }
 
     return (
@@ -32,7 +55,7 @@ const Register: React.FC = () => {
             <p>Register your account</p>
             <form className='w-full mt-4' onSubmit={handleLogin}>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md my-4'>
-                    <input placeholder="Email" className='w-[90%] outline-none p-2' type="text" />
+                    <input placeholder="Email" className='w-[90%] outline-none p-2' type="email" />
                     <AiOutlineMail />
                 </div>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md'>
