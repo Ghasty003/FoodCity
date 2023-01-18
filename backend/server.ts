@@ -1,20 +1,22 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routers/userRoutes";
-import dotevn from "dotenv";
+import dotenv from "dotenv";
 
-dotevn.config();
+dotenv.config();
 
 class Server {
     private app: express.Application;
+    private port: number | string | undefined;
 
     constructor() {
         this.app = express();
+        this.port = process.env.PORT;
     }
 
     private listen(): void {
-        this.app.listen(4000, () => {
-            console.log("connected to db & server started on port 4000");
+        this.app.listen(this.port, () => {
+            console.log("connected to db & server started on port", this.port);
         })
     }
 
