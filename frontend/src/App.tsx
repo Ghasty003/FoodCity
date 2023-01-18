@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 function App() {
 
   return (
-    <div>
+    <div className="bg-primary min-h-full">
       <Routes>
         <Route path="/">
           <Route path="login" element={<Login />} />
