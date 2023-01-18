@@ -1,6 +1,5 @@
 import mongoose, { Model, Schema } from "mongoose";
 
-
 interface User {
     email: string;
     password: string;
