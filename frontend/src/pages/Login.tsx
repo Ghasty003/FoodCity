@@ -9,12 +9,16 @@ const Login: React.FC = () => {
     const [err, setErr] = useState<boolean>(false);
     const [seePass, setSeePass] = useState<boolean>(false);
 
-    const hidePassword = () => {
+    const passwordInput = useRef<HTMLInputElement>(null!);
 
+    const hidePassword = () => {
+        setSeePass(false);
+        passwordInput.current.type = "password";
     }
 
     const seePassword = () => {
-
+        setSeePass(true);
+        passwordInput.current.type = "text";
     }
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -32,7 +36,7 @@ const Login: React.FC = () => {
                     <AiOutlineMail />
                 </div>
                 <div className='flex justify-between items-center pr-3 relative w-[85%] m-auto border border-gray rounded-md'>
-                    <input type="password" className='w-[90%] outline-none p-2' />
+                    <input type="password" className='w-[90%] outline-none p-2' ref={passwordInput} />
                     { seePass ? <FiEyeOff className='cursor-pointer' onClick={hidePassword} />
                         : <IoEyeOutline className='cursor-pointer' onClick={seePassword} />
                     }
