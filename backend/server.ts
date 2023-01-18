@@ -9,10 +9,12 @@ dotenv.config();
 class Server {
     private app: express.Application;
     private port: number | string | undefined;
+    private db_uri: string | undefined;
 
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
+        this.db_uri = process.env.DB_URI;
     }
 
     public test() {
@@ -37,7 +39,7 @@ class Server {
 
     public async connectToDB():Promise<void> {
         try {
-            await mongoose.connect("mongodb://0.0.0.0:27017/foodcity");
+            await mongoose.connect(this.db_uri as string);
             this.listen();
         } catch (error) {
             console.log(error);
