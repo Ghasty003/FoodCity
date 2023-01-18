@@ -23,6 +23,29 @@ const Login: React.FC = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const event = (e.target) as HTMLFormElement;
+
+        const email: string = (event[0] as HTMLInputElement).value;
+        const password: string = (event[1] as HTMLInputElement).value;
+
+        const response = await fetch("http://localhost:4000/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email, password})
+        });
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            console.log(json.error);
+        }
+
+        if (response.ok) {
+            console.log(json)
+        }
     }
 
     return (
