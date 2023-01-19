@@ -43,7 +43,7 @@ class Server {
     connectToDB() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield mongoose_1.default.connect(this.db_uri);
+                yield mongoose_1.default.connect("mongodb://0.0.0.0:27017/foodcity");
                 this.listen();
             }
             catch (error) {
