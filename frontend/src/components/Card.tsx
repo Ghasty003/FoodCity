@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Props {
     id: number;
-    price: number;
+    price: string;
     title: string;
     description: string;
     img: string;
