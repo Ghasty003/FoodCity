@@ -1,6 +1,5 @@
 import React from 'react';
 import { BsCartPlusFill } from "react-icons/bs";
-import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import logo from "../assets/food-logo.png";
 
