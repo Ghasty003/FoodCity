@@ -26,7 +26,7 @@ const Div: React.FC<Props> = ({ headingText, price, paragText, img }) => {
 
 function ProductHeader() {
     return (
-        <div className='flex justify-around md:flex-row w-[100%] flex-col mt-[100px]'>
+        <div className='flex justify-between md:flex-row w-[100%] flex-col mt-[100px]'>
 
             <div className='flex flex-col items-start w-80 p-2'>
 
