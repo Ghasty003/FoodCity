@@ -5,3 +5,8 @@
 body {
     @apply bg-primary;
 }
+
+.heroBg {
+    background-image: url("../src/assets/heroBg.png");
+    @apply bg-cover bg-no-repeat bg-center;
+}
