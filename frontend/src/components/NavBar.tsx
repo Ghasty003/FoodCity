@@ -20,7 +20,7 @@ const Links: React.FC<Props> = ({to, text}) => {
 function NavBar() {
     return (
         <div className='sticky bg-primary top-0 z-10 pb-2'>
-            <nav className='flex justify-around items-center py-4'>
+            <nav className='flex justify-between items-center py-4'>
                 <a href='#' className='flex items-center gap-2'>
                     <img className='w-10 rounded-full ' src={logo} alt="logo" />
                     <h3 className='text-headingColor font-bold'>Food City</h3>
