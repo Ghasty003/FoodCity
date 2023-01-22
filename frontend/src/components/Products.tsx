@@ -1,4 +1,6 @@
 import React from 'react';
+import lists from "../data/header-data";
+import Card from "./Card";
 
 function Products() {
 
@@ -10,7 +12,13 @@ function Products() {
             </div>
 
             <div className='w-[100%] h-48 relative mt-16 overflow-x-auto'>
-                <div> </div>
+                <div>
+                    {
+                        lists.map(({id, title, description, price, img}) => (
+                            <Card key={id} title={title} id={id} description={description} price={price} img={img} />
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
