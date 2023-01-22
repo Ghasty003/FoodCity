@@ -42,10 +42,6 @@ function NavBar() {
                     </div>
                     
                     </div>
-
-                    <p className='m-4 p-2 text-2xl text-textColor cursor-pointer'>
-                        <HiOutlineBars3BottomRight />
-                    </p>
                 </div>
 
             </nav>
