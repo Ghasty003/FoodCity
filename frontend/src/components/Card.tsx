@@ -1,6 +1,14 @@
 import React from 'react';
 
-function Card() {
+interface Props {
+    id: number;
+    price: number;
+    title: string;
+    description: string;
+    img: string;
+}
+
+function Card({id, price, title, description, img}: Props) {
     return (
         <div>
             
