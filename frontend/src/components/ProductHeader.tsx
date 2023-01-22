@@ -28,14 +28,14 @@ function ProductHeader() {
     return (
         <div className='flex justify-between md:flex-row w-[100%] flex-col mt-[100px]'>
 
-            <div className='flex flex-col items-start w-80 p-2'>
+            <div className='flex flex-col items-start md:w-1/2 p-2'>
 
                 <p className='bg-orange-100 w-40 rounded-xl p-3 whitespace-nowrap'>
                     <span className='text-orange-500 font-bold pr-2'>Bike Delivery</span>
                     <img className='w-8 inline-block rounded-full bg-white mr-2' src={bike} alt="image" />
                 </p>
 
-                <h2 className='capitalize text-4xl md:text-[58px] font-bold leading-[60px] md:leading-[80px] text-headingColor my-6'>
+                <h2 className='capitalize text-[3rem] md:text-[5rem] font-bold leading-[60px] md:leading-[80px] text-headingColor my-6'>
                     the fastest delivery in <span className='text-orange-500'>your city.</span>
                 </h2>
 
