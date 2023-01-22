@@ -2,12 +2,17 @@ import React from 'react';
 import { BsCartPlusFill } from "react-icons/bs";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
+import logo from "../assets/food-logo.png";
 
+interface Props {
+    to: string;
+    text: string;
+}
 
-const Links: React.FC = () => {
+const Links: React.FC<Props> = ({to, text}) => {
     return (
-        <Link to={""} className='text-textColor cursor-pointer hover:text-headingColor transition-all duration-1000'>
-            {"J"}
+        <Link to={to} className='text-textColor cursor-pointer hover:text-headingColor transition-all duration-1000'>
+            {text}
         </Link>
     )
 }
@@ -18,12 +23,13 @@ function NavBar() {
         <div className='sticky bg-primary top-0 z-10 pb-2'>
             <nav className='flex justify-around items-center py-4'>
                 <a href='#' className='flex items-center gap-2'>
-                    <img className='w-10 rounded-full ' src={"logo"} alt="logo" />
+                    <img className='w-10 rounded-full ' src={logo} alt="logo" />
                     <h3 className='text-headingColor font-bold'>Food City</h3>
                 </a>
 
                 <ul className='hidden justify-around md:flex items-center gap-14'>
-                    <Links />
+                    <Links to='/checkout' text='Checkout' />
+                    <Links to='/profile' text='Profile' />
                 </ul>
 
                 <div className='flex justify-around items-center gap-5'>
