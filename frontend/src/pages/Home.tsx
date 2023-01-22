@@ -5,7 +5,7 @@ import Products from '../components/Products';
 
 function Home() {
     return (
-        <div>
+        <div className='px-14'>
             <NavBar />
             <ProductHeader />
             <Products />
