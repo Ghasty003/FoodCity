@@ -11,7 +11,7 @@ const Register: React.FC = () => {
     const [err, setErr] = useState<string>("");
     const [seePass, setSeePass] = useState<boolean>(false);
 
-    const {dispatch, state} = useContext(AuthContext);
+    const {dispatch} = useContext(AuthContext);
 
     const passwordInput = useRef<HTMLInputElement>(null!);
 
