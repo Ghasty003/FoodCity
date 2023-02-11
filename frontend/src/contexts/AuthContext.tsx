@@ -30,6 +30,8 @@ export const AuthContextProvider: React.FC<Prop> = ({ children }) => {
 
     const [state, dispatch] = useReducer(authReducer, initialValue);
 
+    const { user } = state;
+ 
     return (
         <AuthContext.Provider value={{dispatch, state}}>
             { children }
