@@ -1,28 +1,6 @@
 import { type } from "os";
 import React, { createContext, useReducer, useState, Reducer } from "react";
-
-interface Prop {
-    children: React.ReactNode;
-}
-
-enum Type {
-    LOGIN = "LOGIN",
-    LOGOUT = "LOGOUT"
-}
-
-interface User {
-    user: object | null
-}
-
-interface ActionType {
-    payload: object;
-    type: Type
-}
-
-interface ContextType {
-    dispatch: React.Dispatch<ActionType>;
-    state: User;
-}
+import {ActionType, ContextType, Type, Prop, User} from "../types/types";
 
 const AuthContext = createContext<ContextType>(null!);
 
