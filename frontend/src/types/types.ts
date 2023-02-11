@@ -20,5 +20,5 @@ export interface ActionType {
 
 export interface ContextType {
     dispatch: React.Dispatch<ActionType>;
-    user: object | null
+    state: User;
 }
