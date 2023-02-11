@@ -1,5 +1,4 @@
-import { type } from "os";
-import React, { createContext, useReducer, useState, Reducer } from "react";
+import React, { createContext, useReducer, useEffect, Reducer } from "react";
 import {ActionType, ContextType, Type, Prop, User} from "../types/types";
 
 const AuthContext = createContext<ContextType>(null!);
@@ -30,7 +29,13 @@ export const AuthContextProvider: React.FC<Prop> = ({ children }) => {
 
     const [state, dispatch] = useReducer(authReducer, initialValue);
 
-    const { user } = state;
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+
+        if (user) {
+            dispatch({type: Type.LOGIN, payload: JSON.parse(user)});
+        }
+    }, []);
  
     return (
         <AuthContext.Provider value={{dispatch, state}}>
