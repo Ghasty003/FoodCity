@@ -8,3 +8,7 @@ enum Type {
 interface Prop {
     children: React.ReactNode;
 }
+
+interface User {
+    user: object | null
+}
