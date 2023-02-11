@@ -1,7 +1,8 @@
 import React from "react";
 
 enum Type {
-    LOGIN = "LOGIN"
+    LOGIN = "LOGIN",
+    LOGOUT = "LOGOUT"
 }
 
 interface Prop {
