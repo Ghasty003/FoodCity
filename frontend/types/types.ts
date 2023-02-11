@@ -12,3 +12,8 @@ interface Prop {
 interface User {
     user: object | null
 }
+
+interface ActionType {
+    payload: object;
+    type: Type
+}
