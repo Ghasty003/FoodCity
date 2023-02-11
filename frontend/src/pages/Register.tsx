@@ -10,6 +10,7 @@ const Register: React.FC = () => {
 
     const [err, setErr] = useState<string>("");
     const [seePass, setSeePass] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const {dispatch} = useContext(AuthContext);
 
@@ -27,6 +28,7 @@ const Register: React.FC = () => {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         const event = (e.target) as HTMLFormElement;
 
@@ -45,11 +47,13 @@ const Register: React.FC = () => {
 
         if (!response.ok) {
             setErr(json.error);
+            setLoading(false);
         }
 
         if (response.ok) {
             localStorage.setItem("user", JSON.stringify(json));
             dispatch({type: Type.LOGIN, payload: json})
+            setLoading(false);
         }
     }
 
@@ -74,7 +78,7 @@ const Register: React.FC = () => {
                     err && <p className='text-center mt-2 text-red-600'>{ err }</p>
                 }
                 <div className='flex justify-center items-center my-6'>
-                    <button className='bg-orange-400 text-white w-[200px] p-2 rounded-xl text-center'>Register</button>
+                    <button disabled={loading} className='bg-orange-400 text-white w-[200px] p-2 rounded-xl text-center'>{loading ? "Registering..." : "Register"}</button>
                 </div>
 
                 <div className='text-center text-sm'>
