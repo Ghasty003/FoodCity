@@ -17,3 +17,8 @@ interface ActionType {
     payload: object;
     type: Type
 }
+
+interface ContextType {
+    dispatch: React.Dispatch<ActionType>;
+    state: User;
+}
