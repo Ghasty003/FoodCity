@@ -4,10 +4,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
 import AuthContext from "../contexts/AuthContext";
-
-enum Type {
-    LOGIN = "LOGIN"
-}
+import { Type } from "../types/types";
 
 const Register: React.FC = () => {
 
