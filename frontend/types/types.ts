@@ -1,0 +1,3 @@
+enum Type {
+    LOGIN = "LOGIN"
+}
