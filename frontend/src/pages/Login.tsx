@@ -44,6 +44,7 @@ const Login: React.FC = () => {
         }
 
         if (response.ok) {
+            localStorage.setItem("user", json);
             console.log(json)
         }
     }
