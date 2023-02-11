@@ -1,24 +1,24 @@
 import React from "react";
 
-enum Type {
+export enum Type {
     LOGIN = "LOGIN",
     LOGOUT = "LOGOUT"
 }
 
-interface Prop {
+export interface Prop {
     children: React.ReactNode;
 }
 
-interface User {
+export interface User {
     user: object | null
 }
 
-interface ActionType {
+export interface ActionType {
     payload: object;
     type: Type
 }
 
-interface ContextType {
+export interface ContextType {
     dispatch: React.Dispatch<ActionType>;
     state: User;
 }
