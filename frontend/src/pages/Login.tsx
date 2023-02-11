@@ -1,13 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
+import AuthContext from "../contexts/AuthContext";
+
+enum Type {
+    LOGIN ="LOGIN"
+}
 
 const Login: React.FC = () => {
 
-    const [err, setErr] = useState<boolean>(false);
+    const [err, setErr] = useState<string>("");
     const [seePass, setSeePass] = useState<boolean>(false);
+
+    const authContext = useContext(AuthContext);
+
 
     const passwordInput = useRef<HTMLInputElement>(null!);
 
@@ -40,12 +48,12 @@ const Login: React.FC = () => {
         const json = await response.json();
 
         if (!response.ok) {
-            console.log(json.error);
+            setErr(json.error);
         }
 
         if (response.ok) {
-            localStorage.setItem("user", json);
-            console.log(json)
+            localStorage.setItem("user", JSON.stringify(json));
+            authContext.dispatch({type: Type.LOGIN, payload: json})
         }
     }
 
@@ -69,7 +77,7 @@ const Login: React.FC = () => {
                     <Link to="" className='text-sm text-orange-400 text-end'>Forgot password?</Link>
                 </div>
                 {
-                    err && <p className='text-center mt-2 text-red-600'>Something went wrong, try again.</p>
+                    err && <p className='text-center mt-2 text-red-600'>{ err }</p>
                 }
                 <div className='flex justify-center items-center my-6'>
                     <button className='bg-orange-400 text-white w-[200px] p-2 rounded-xl text-center'>Sign In</button>
