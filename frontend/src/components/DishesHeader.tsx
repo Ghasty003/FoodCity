@@ -1,6 +1,4 @@
-import React from 'react';
-import lists from "../data/header-data";
-import Dishes from "./Dishes";
+
 
 function DishesHeader() {
 
