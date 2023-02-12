@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Chicken from "./Chicken";
 import { FaHamburger } from "react-icons/all"
+import Curry from "./Curry";
 
 const Div: React.FC<{text: string}> = ({text}) => {
     return (
@@ -14,6 +15,8 @@ const Div: React.FC<{text: string}> = ({text}) => {
 }
 
 function DishesHeader() {
+
+    const [state, setState] = useState(<Chicken />);
 
     return (
         <div className='mt-32'>
@@ -33,7 +36,7 @@ function DishesHeader() {
                 </div>
             </div>
 
-            <Chicken />
+            { state }
         </div>
     );
 }
