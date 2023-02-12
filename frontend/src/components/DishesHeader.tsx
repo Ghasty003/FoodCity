@@ -1,3 +1,4 @@
+import Chicken from "./Chicken";
 
 
 function DishesHeader() {
@@ -9,7 +10,7 @@ function DishesHeader() {
                 <p className='w-32 h-1 rounded-xl bg-orange-500'></p>
             </div>
 
-            <div className='w-full relative mt-10 overflow-y-hidden overflow-x-auto'>
+            <div className='w-full relative mt-10'>
                 <div className='flex justify-center items-center gap-14'>
                     <div className='bg-cartNumBg w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
                         <div className='w-10 h-10 rounded-full shadow-lg bg-white group-hover:bg-white flex items-center justify-center'>
@@ -54,6 +55,8 @@ function DishesHeader() {
                     </div>
                 </div>
             </div>
+
+            <Chicken />
         </div>
     );
 }
