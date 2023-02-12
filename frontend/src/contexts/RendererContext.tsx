@@ -3,6 +3,7 @@ import { Prop, RendererProps } from "../types/types";
 import Chicken from "../components/Chicken";
 import Curry from "../components/Curry";
 import Rice from "../components/Rice";
+import Fish from "../components/Fish";
 
 const RendererContext = createContext<RendererProps>(null!);
 
@@ -18,6 +19,8 @@ export const RendererContextProvider: React.FC<Prop> = ({ children }) => {
             setState(<Curry />)
         } else if (text.toLocaleLowerCase() == "rice") {
             setState(<Rice />)
+        } else if (text.toLocaleLowerCase() == "fish") {
+            setState(<Fish />)
         }
     }
     
