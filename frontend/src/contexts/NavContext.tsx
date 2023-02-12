@@ -24,6 +24,7 @@ export const NavContextProvider: React.FC<Prop> = ({ children }) => {
     }
 
     const sidebar = useRef<HTMLDivElement>(null!);
+    const cart = useRef<HTMLDivElement>(null!);
 
     const openNav = () => {
         sidebar.current.animate(sideBarSlideOut, sideBarAnimationOption);
@@ -36,7 +37,7 @@ export const NavContextProvider: React.FC<Prop> = ({ children }) => {
     }
 
     return (
-        <NavContext.Provider value={{openNav, sidebar, closeNav}}>
+        <NavContext.Provider value={{openNav, sidebar, closeNav, cart}}>
             { children }
         </NavContext.Provider>
     )
