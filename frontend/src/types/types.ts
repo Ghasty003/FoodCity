@@ -39,5 +39,6 @@ export interface RendererProps {
 export interface Navprops {
     openNav: () => void;
     sidebar: React.MutableRefObject<HTMLDivElement>;
+    cart: React.MutableRefObject<HTMLDivElement>;
     closeNav: () => void;
 }
