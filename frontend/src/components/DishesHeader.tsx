@@ -1,5 +1,16 @@
+import React from "react";
 import Chicken from "./Chicken";
 
+const Div: React.FC<{text: string}> = ({text}) => {
+    return (
+        <div className='group bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
+            <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
+                
+            </div>
+            <p className='text-sm text-textColor group-hover:text-white'>{ text }</p>
+        </div>
+    )
+}
 
 function DishesHeader() {
 
@@ -12,47 +23,12 @@ function DishesHeader() {
 
             <div className='w-full relative mt-10'>
                 <div className='flex justify-center items-center gap-14'>
-                    <div className='bg-cartNumBg w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-white group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-white group-hover:text-white'>Chicken</p>
-                    </div>
-
-                    <div className='bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-textColor group-hover:text-white'>Curry</p>
-                    </div>
-
-                    <div className='bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-textColor group-hover:text-white'>Rice</p>
-                    </div>
-
-                    <div className='bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-textColor group-hover:text-white'>Fish</p>
-                    </div>
-
-                    <div className='bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-textColor group-hover:text-white'>Fruits</p>
-                    </div>
-
-                    <div className='bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
-                        <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
-                            
-                        </div>
-                        <p className='text-sm text-textColor group-hover:text-white'>Ice creams</p>
-                    </div>
+                    <Div text={"Chicken"} />
+                    <Div text="Curry" />
+                    <Div text="Rice" />
+                    <Div text="Fish" />
+                    <Div text="Fruit" />
+                    <Div text="Ice cream" />
                 </div>
             </div>
 
