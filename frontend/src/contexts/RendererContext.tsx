@@ -5,6 +5,7 @@ import Curry from "../components/Curry";
 import Rice from "../components/Rice";
 import Fish from "../components/Fish";
 import Fruit from "../components/Fruit";
+import IceCream from "../components/Ice-cream";
 
 const RendererContext = createContext<RendererProps>(null!);
 
@@ -24,6 +25,8 @@ export const RendererContextProvider: React.FC<Prop> = ({ children }) => {
             setState(<Fish />)
         } else if (text.toLocaleLowerCase() == "fruit") {
             setState(<Fruit />);
+        } else if (text.toLocaleLowerCase() == "ice cream") {
+            setState(<IceCream />);
         }
     }
     
