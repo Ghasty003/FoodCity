@@ -11,8 +11,8 @@ function DishesHeader() {
                 <p className='w-32 h-1 rounded-xl bg-orange-500'></p>
             </div>
 
-            <div className='w-full h-48 relative mt-16 overflow-y-hidden overflow-x-auto'>
-                <div className='flex mt-4 desktop:w-[1120px]'>
+            <div className='w-full relative mt-16 overflow-y-hidden overflow-x-auto'>
+                <div className='flex mt-4'>
                     <Dishes />
                 </div>
             </div>
