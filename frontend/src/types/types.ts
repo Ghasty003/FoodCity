@@ -22,3 +22,10 @@ export interface ContextType {
     dispatch: React.Dispatch<ActionType>;
     state: User;
 }
+
+export interface CardProps {
+    price: string;
+    title: string;
+    description: string;
+    img: string;
+}
