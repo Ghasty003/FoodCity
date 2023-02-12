@@ -1,10 +1,19 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TiArrowBack, FcClearFilters } from "react-icons/all";
 import NavContext from "../contexts/NavContext";
 
 function Sidebar() {
 
-    const {sidebar, closeNav} = useContext(NavContext);
+    const {sidebar, closeNav, cart} = useContext(NavContext);
+
+    useEffect(() => {
+        document.addEventListener("click", (e) => {
+            const event = e.target as HTMLElement;
+            if (!sidebar.current.contains(event) && !cart.current.contains(event)) {
+                closeNav();
+            }
+        })
+    }, []);
 
     return (
         <div ref={sidebar} className='bg-white fixed -right-full h-full w-[400px] top-0 z-20 drop-shadow-lg'>
