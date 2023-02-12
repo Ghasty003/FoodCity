@@ -20,7 +20,7 @@ const Links: React.FC<Props> = ({to, text}) => {
 
 function NavBar() {
 
-    const { openNav } = useContext(NavContext);
+    const { openNav, cart } = useContext(NavContext);
 
     return (
         <div className='sticky bg-primary top-0 z-10 pb-2'>
@@ -35,7 +35,7 @@ function NavBar() {
                     <Links to='/profile' text='Profile' />
                 </ul>
 
-                <div onClick={openNav} className='flex justify-around items-center gap-5'>
+                <div ref={cart} onClick={openNav} className='flex justify-around items-center gap-5'>
                     
                     <div className='relative cursor-pointer'>
                     <BsCartPlusFill className='text-2xl' />
