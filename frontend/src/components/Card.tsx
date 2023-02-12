@@ -1,15 +1,8 @@
 import React from 'react';
 import { BsCartPlusFill } from "react-icons/bs";
+import { CardProps } from "../types/types";
 
-interface Props {
-    id: number;
-    price: string;
-    title: string;
-    description: string;
-    img: string;
-}
-
-function Card({id, price, title, description, img}: Props) {
+function Card({price, title, description, img}: CardProps) {
     return (
         <div className='bg-cardOverlay backdrop-blur-lg hover:drop-shadow-lg h-40 w-[280px] rounded-xl relative p-4 mx-5'>
             <img className='w-[128px] hover:scale-[1.2] duration-300 absolute -top-5 left-4' src={img} alt="image" />
