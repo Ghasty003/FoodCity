@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { TiArrowBack, FcClearFilters } from "react-icons/all";
+import NavContext from "../contexts/NavContext";
 
 function Sidebar() {
+
+    const {sidebar} = useContext(NavContext);
+
     return (
-        <div className='bg-white fixed right-0 h-full w-[400px] top-0 z-20 drop-shadow-lg'>
+        <div ref={sidebar} className='bg-white fixed -right-full h-full w-[400px] top-0 z-20 drop-shadow-lg'>
             <div className="flex items-center justify-between px-8 mt-6">
                 <TiArrowBack cursor="pointer" size={25} />
                 <h2 className="text-xl font-semibold text-textColor">Cart</h2>
