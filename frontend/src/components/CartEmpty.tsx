@@ -2,7 +2,7 @@ import React from 'react';
 
 function CartEmpty() {
     return (
-        <div>
+        <div className='text-2xl text-textColor font-semibold text-center'>
             Add some items to your cart
         </div>
     );
