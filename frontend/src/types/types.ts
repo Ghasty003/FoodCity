@@ -35,3 +35,8 @@ export interface RendererProps {
     setState: React.Dispatch<React.SetStateAction<JSX.Element>>;
     updateRenderer: (text: string) => void;
 }
+
+export interface Navprops {
+    openNav: () => void;
+    sidebar: React.MutableRefObject<HTMLDivElement>;
+}
