@@ -2,7 +2,7 @@ import img1 from "../assets/fi2.png";
 import img2 from "../assets/fi3.png";
 import img3 from "../assets/fi4.png";
 import img4 from "../assets/fi5.png";
-import img5 from "../assets/fish.png";
+import img5 from "../assets/fish.jpg";
 
 export default [
     {
