@@ -1,4 +1,3 @@
-import React from 'react';
 import DishesHeader from '../components/DishesHeader';
 import NavBar from '../components/NavBar';
 import ProductHeader from '../components/ProductHeader';
