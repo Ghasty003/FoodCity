@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Chicken from "./Chicken";
+import React, { useContext } from "react";
 import { FaHamburger } from "react-icons/all"
-import Curry from "./Curry";
+import RendererContext from "../contexts/RendererContext";
 
 const Div: React.FC<{text: string}> = ({text}) => {
+    const { updateRenderer } = useContext(RendererContext);
     return (
-        <div className='group bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
+        <div onClick={() => updateRenderer(text)} className='group bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
             <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
                 <FaHamburger className="text-white text-lg group-hover:text-textColor" />
             </div>
@@ -16,7 +16,7 @@ const Div: React.FC<{text: string}> = ({text}) => {
 
 function DishesHeader() {
 
-    const [state, setState] = useState(<Chicken />);
+    const { state } = useContext(RendererContext);
 
     return (
         <div className='mt-32'>
