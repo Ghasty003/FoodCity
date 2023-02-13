@@ -10,3 +10,12 @@ body {
     background-image: url("../src/assets/heroBg.png");
     @apply bg-cover bg-no-repeat bg-center;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
