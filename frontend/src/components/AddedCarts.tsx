@@ -19,7 +19,7 @@ const Div = () => {
 function AddedCarts() {
     return (
         <div className='w-full h-full bg-cartBg rounded-t-[2rem] mt-4'>
-            <div className='w-full h-[340px] px-6 py-10 flex flex-col gap-3 overflow-y-auto'>
+            <div className='w-full h-[340px] px-6 py-10 flex flex-col gap-3 overflow-y-auto scrollbar-hide'>
                 <Div />
                 <Div />
                 <Div />
