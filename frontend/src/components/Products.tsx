@@ -11,7 +11,7 @@ function Products() {
                 <p className='w-32 h-1 rounded-xl bg-orange-500'></p>
             </div>
 
-            <div className='w-full h-48 relative mt-16 overflow-y-hidden overflow-x-auto'>
+            <div className='w-full h-48 relative mt-16 overflow-y-hidden overflow-x-auto scrollbar-hide'>
                 <div className='flex mt-4 desktop:w-[1120px]'>
                     {
                         lists.map(({id, title, description, price, img}) => (
