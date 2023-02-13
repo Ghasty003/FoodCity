@@ -4,8 +4,9 @@ import RendererContext from "../contexts/RendererContext";
 
 const Div: React.FC<{text: string}> = ({text}) => {
     const { updateRenderer } = useContext(RendererContext);
+
     return (
-        <div onClick={() => updateRenderer(text)} className='group bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg'>
+        <div onClick={() => updateRenderer(text)} className='group bg-card w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg duration-300 active:scale-75'>
             <div className='w-10 h-10 rounded-full shadow-lg bg-cartNumBg group-hover:bg-white flex items-center justify-center'>
                 <FaHamburger className="text-white text-lg group-hover:text-textColor" />
             </div>
