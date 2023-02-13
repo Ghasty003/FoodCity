@@ -24,6 +24,7 @@ export interface ContextType {
 }
 
 export interface CardProps {
+    id: number;
     price: string;
     title: string;
     description: string;
@@ -41,4 +42,9 @@ export interface Navprops {
     sidebar: React.MutableRefObject<HTMLDivElement>;
     cart: React.MutableRefObject<HTMLDivElement>;
     closeNav: () => void;
+}
+
+
+export interface CartContextProps {
+    addItemToCart: (title: string, description: string, price: string, img: string, id: number) => void
 }
