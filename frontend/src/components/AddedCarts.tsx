@@ -1,15 +1,17 @@
-import React from 'react';
-import img from "../assets/f1.png";
+import React, { useContext } from 'react';
+// import img from "../assets/f1.png";
+import CartContext from '../contexts/CartContext';
+import { CardProps } from '../types/types';
 
-const Div = () => {
+const Div = ({title, price, img}: CardProps) => {
 
     return (
         <div className='w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2'>
             <div className='flex items-center text-white gap-3'>
                 <img className='w-20 h-20' src={img} alt="" />
                 <div className=''>
-                    <p className='text-lg'>Header</p>
-                    <p>$ price</p>
+                    <p className='text-lg'>{ title }</p>
+                    <p>$ { price }</p>
                 </div>
             </div>
         </div>
@@ -17,17 +19,17 @@ const Div = () => {
 }
 
 function AddedCarts() {
+
+    const { cartItem } = useContext(CartContext);
+
     return (
         <div className='w-full h-full bg-cartBg rounded-t-[2rem] mt-4'>
             <div className='w-full h-[340px] px-6 py-10 flex flex-col gap-3 overflow-y-auto scrollbar-hide'>
-                <Div />
-                <Div />
-                <Div />
-                <Div />
-                <Div />
-                <Div />
-                <Div />
-                <Div />
+                {
+                    cartItem.map(cart => (
+                        <Div key={cart.id} title={cart.title} id={cart.id} description={cart.description} price={cart.price} img={cart.img} />
+                    ))
+                }
             </div>
 
             <div className='bg-cartItem rounded-t-[2rem] fixed bottom-0 w-full px-8'>
