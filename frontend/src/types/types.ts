@@ -46,5 +46,7 @@ export interface Navprops {
 
 
 export interface CartContextProps {
-    addItemToCart: (title: string, description: string, price: string, img: string, id: number) => void
+    addItemToCart: (title: string, description: string, price: string, img: string, id: number) => void;
+    cartItem: CardProps[];
+    setCartItem: React.Dispatch<React.SetStateAction<CardProps[]>>;
 }
