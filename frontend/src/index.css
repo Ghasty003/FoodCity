@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-primary;
+    @apply bg-primary overflow-x-hidden;
 }
 
 .heroBg {
