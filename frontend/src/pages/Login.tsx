@@ -36,7 +36,7 @@ const Login: React.FC = () => {
         const email: string = (event[0] as HTMLInputElement).value;
         const password: string = (event[1] as HTMLInputElement).value;
 
-        const response = await fetch("http://localhost:4000/api/users/login", {
+        const response = await fetch("https://foodcity.onrender.com/api/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
