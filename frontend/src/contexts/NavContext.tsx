@@ -28,12 +28,12 @@ export const NavContextProvider: React.FC<Prop> = ({ children }) => {
 
     const openNav = () => {
         sidebar.current.animate(sideBarSlideOut, sideBarAnimationOption);
-        sidebar.current.classList.replace("-right-full", "right-0");
+        sidebar.current.classList.replace("-right-[500px]", "right-0");
     }
 
     const closeNav = () => {
         sidebar.current.animate(sideBarSlideIn, sideBarAnimationOption);
-        sidebar.current.classList.replace("right-0", "-right-full");
+        sidebar.current.classList.replace("right-0", "-right-[500px]");
     }
 
     return (
