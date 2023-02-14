@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { TiArrowBack, FcClearFilters } from "react-icons/all";
+import CartContext from "../contexts/CartContext";
 import NavContext from "../contexts/NavContext";
 import AddedCarts from "./AddedCarts";
 import CartEmpty from "./CartEmpty";
@@ -7,6 +8,8 @@ import CartEmpty from "./CartEmpty";
 function Sidebar() {
 
     const {sidebar, closeNav, cart} = useContext(NavContext);
+
+    const { cartItem } = useContext(CartContext);
 
     useEffect(() => {
         document.addEventListener("click", (e) => {
@@ -25,8 +28,9 @@ function Sidebar() {
                 <h2 className="text-xl font-semibold text-textColor">Cart</h2>
                 <button className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base active:scale-75 duration-200">Clear <FcClearFilters /></button>
             </div>
-            {/* <CartEmpty /> */}
-            <AddedCarts />
+            {
+                cartItem.length > 0 ? <AddedCarts /> : <CartEmpty />
+            }
         </div>
     );
 }
