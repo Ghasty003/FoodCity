@@ -9,7 +9,7 @@ function Sidebar() {
 
     const {sidebar, closeNav, cart} = useContext(NavContext);
 
-    const { cartItem } = useContext(CartContext);
+    const { cartItem, setCartItem } = useContext(CartContext);
 
     useEffect(() => {
         document.addEventListener("click", (e) => {
@@ -26,7 +26,7 @@ function Sidebar() {
             <div className="flex items-center justify-between px-8 mt-4">
                 <TiArrowBack onClick={closeNav} cursor="pointer" size={25} />
                 <h2 className="text-xl font-semibold text-textColor">Cart</h2>
-                <button className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base active:scale-75 duration-200">Clear <FcClearFilters /></button>
+                <button onClick={() => setCartItem([])} className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base active:scale-75 duration-200">Clear <FcClearFilters /></button>
             </div>
             {
                 cartItem.length > 0 ? <AddedCarts /> : <CartEmpty />
