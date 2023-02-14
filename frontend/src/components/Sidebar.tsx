@@ -15,14 +15,14 @@ function Sidebar() {
         document.addEventListener("click", (e) => {
             const event = e.target as HTMLElement;
             if (!sidebar.current.contains(event) && !cart.current.contains(event) 
-            && !sidebar.current.classList.contains("-right-full")) {
+            && !sidebar.current.classList.contains("-right-[500px]")) {
                 closeNav();
             }
         })
     }, []);
 
     return (
-        <div ref={sidebar} className='bg-white fixed -right-full h-full w-[400px] top-0 z-20 drop-shadow-lg'>
+        <div ref={sidebar} className='bg-white fixed w-full -right-[500px] h-full sm:w-[400px] top-0 z-20 drop-shadow-lg'>
             <div className="flex items-center justify-between px-8 mt-4">
                 <TiArrowBack onClick={closeNav} cursor="pointer" size={25} />
                 <h2 className="text-xl font-semibold text-textColor">Cart</h2>
