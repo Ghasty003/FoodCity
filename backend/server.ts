@@ -39,7 +39,7 @@ class Server {
 
     public async connectToDB():Promise<void> {
         try {
-            await mongoose.connect("mongodb://0.0.0.0:27017/foodcity");
+            await mongoose.connect(this.db_uri as string);
             this.listen();
         } catch (error) {
             console.log(error);
