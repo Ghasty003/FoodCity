@@ -6,7 +6,7 @@ function Chicken() {
         <div className="flex flex-wrap justify-around mt-10 gap-8">
             {
                 lists.map(list => (
-                    <Card key={list.id} title={list.title} price={list.price} description={list.description} img={list.img} />
+                    <Card key={list.id} id={list.id} title={list.title} price={list.price} description={list.description} img={list.img} />
                 ))
             }
         </div>
