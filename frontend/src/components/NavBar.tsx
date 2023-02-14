@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { BsCartPlusFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import logo from "../assets/food-logo.png";
+import CartContext from '../contexts/CartContext';
 import NavContext from '../contexts/NavContext';
 
 interface Props {
@@ -21,6 +22,7 @@ const Links: React.FC<Props> = ({to, text}) => {
 function NavBar() {
 
     const { openNav, cart } = useContext(NavContext);
+    const { cartItem } = useContext(CartContext)
 
     return (
         <div className='sticky bg-primary top-0 z-10 pb-2'>
@@ -40,9 +42,13 @@ function NavBar() {
                     <div className='relative cursor-pointer'>
                     <BsCartPlusFill className='text-2xl' />
                     
-                    <div className='absolute text-sm -top-2 -right-2 bg-red-600 text-white text-center rounded-full w-6 h-6'>
-                        0
-                    </div>
+                    {
+                        cartItem.length > 0 && (
+                            <div className='absolute text-sm -top-2 -right-2 bg-red-600 text-white text-center rounded-full w-6 h-6'>
+                                { cartItem.length }
+                            </div>
+                        )
+                    }
                     
                     </div>
                 </div>
